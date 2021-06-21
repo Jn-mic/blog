@@ -1,0 +1,4 @@
+Hello {{user.username}}
+Fell at home here at Blog
+
+Thanks for signing up :)
