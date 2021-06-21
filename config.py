@@ -1,24 +1,22 @@
 import os
 
-from dotenv import load_dotenv as ld
-
-ld()
-
-
 class Config:
-    debug = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-    SENDGRID_API_KEY=os.environ.get('SENDGRID_API_KEY')
-    DEFAULT_SENDGRID_SENDER =  os.environ.get('DEFAULT_SENDGRID_SENDER')
+    BASE_URL='http://quotes.stormconsultancy.co.uk/random.json'
+    SECRET_KEY = os.environ.get("SECRET_KEY")
+    
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
 
     #  email configurations
-    MAIL_SERVER = 'smtp.gmail.com'
-    MAIL_PORT = 465
-    MAIL_USE_TLS = False
-    MAIL_USE_SSL = True
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME =os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD =os.environ.get("MAIL_PASSWORD")
+    
+    # simple mde  configurations
+    SIMPLEMDE_JS_IIFE = True
+    SIMPLEMDE_USE_CDN = True
 
 
 class ProdConfig(Config):
@@ -27,20 +25,14 @@ class ProdConfig(Config):
         SQLALCHEMY_DATABASE_URI =SQLALCHEMY_DATABASE_URI.replace("postgres://","postgresql://",1)
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://:moringa:Access@localhost/pitch1_test'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/blog_test'
 
 class DevConfig(Config):
-    '''
-    Development  configuration child class
-
-    Args:
-        Config: The parent configuration class with General configuration settings
-    '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitch1'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/blog'
     DEBUG = True
 
 config_options = {
-'production':ProdConfig,
 'development':DevConfig,
+'production':ProdConfig,
 'test':TestConfig
 }
