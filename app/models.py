@@ -21,10 +21,6 @@ class User(db.Model, UserMixin):
         db.session.commit()
 
     def delete(self):
-        db.session.delete(self)
-        db.session.commit()
-
-    def __str__(self):
         return f'User: {self.username} Email: {self.email}'
 
     def __repr__(self):
