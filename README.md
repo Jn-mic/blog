@@ -21,7 +21,7 @@ After extracting the files,
 >`` cd gitSearch.`` 
 
 2. Creating a virtual environment
->``venv venv.``
+>``python3 -m venv venv.``
 
 3. Activating the virtual environment
 >``source venv/bin/activate.``
@@ -36,7 +36,6 @@ After extracting the files,
 ## Technologies used
 * Python3.8
 * Flask
-* Javascript
 * Html5
 * Css
 * Bootstrap
