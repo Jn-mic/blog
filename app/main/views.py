@@ -10,12 +10,11 @@ from app.models import Post, Clap, Comment
 from app.requests import getQuotes
 
 
-@main.route('/home')
-# @main.route('/home')
+@main.route('/')
 def index():
     quotes = getQuotes()
     posts = Post.query.all()
-    return render_template('index.html', quotes=quotes, posts=posts, current_user=current_user)
+    return render_template("index.html", quotes=quotes, posts=posts, current_user=current_user)
 
 
 @main.route('/profile', methods=['GET', 'POST'])
@@ -39,7 +38,7 @@ def profile():
 
 
 @main.route("/new_post", methods=['GET', 'POST'])
-@login_required
+# @login_required
 def new_post():
     form = PostForm()
     if form.validate_on_submit():
@@ -78,7 +77,6 @@ def update_post(post_id):
         form.content.data = post.content
     return render_template('new_post.html', title='Update Post',form=form, legend='Update Post')
 
-
 @main.route("/post/<int:post_id>/delete", methods=['POST'])
 @login_required
 def delete_post(post_id):
@@ -88,7 +86,6 @@ def delete_post(post_id):
     post.delete()
     flash('Your post has been deleted!', 'success')
     return redirect(url_for('main.index'))
-
 
 @main.route('/like/<int:id>', methods=['POST', 'GET'])
 @login_required

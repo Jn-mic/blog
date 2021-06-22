@@ -5,14 +5,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from app import db, login_manager
 
-
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(255), nullable=True, unique=True)
     email = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
-    image_file = db.Column(db.String(255), nullable=False, default='default.jpg')
+    image_file = db.Column(db.String(255), nullable=False, default='default.jpeg')
     posts = db.relationship('Post', backref='author', lazy=True)
     comment = db.relationship('Comment', backref='author', lazy=True)
 
@@ -46,6 +45,7 @@ class Post(db.Model):
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    sub_title =db.Column(db.Text, nullable=False)
 
     def save(self):
         db.session.add(self)
@@ -81,7 +81,6 @@ class Comment(db.Model):
 
     def __repr__(self):
         return f'Comments: {self.comment}'
-
 
 class Clap(db.Model):
     __tablename__ = 'up_votes'

@@ -3,7 +3,6 @@ import os
 class Config:
     BASE_URL='http://quotes.stormconsultancy.co.uk/random.json'
     SECRET_KEY = os.environ.get("SECRET_KEY")
-    
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
@@ -21,9 +20,7 @@ class Config:
 
 class ProdConfig(Config):
     pass
-    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL","")
-    # if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
-    #     SQLALCHEMY_DATABASE_URI =SQLALCHEMY_DATABASE_URI.replace("postgres://","postgresql://",1)
+    
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/blog_test'

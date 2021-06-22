@@ -3,8 +3,7 @@
 {% from 'display_comment_macro.html' import display_comments as commentDisplay%}
 {% block content %}
 <article class="media content-section">
-    <img class="rounded-circle article-img"
-         src="{{ url_for('static', filename='profile_pic/' + post.author.image_file) }}">
+    <img class="rounded-circle article-img"src="{{ url_for('static', filename='profile_pic/' + post.author.image_file) }}">
     <div class="media-body">
         <div class="article-metadata">
             <a class="mr-2" href="#">{{ post.author.username }}</a>
