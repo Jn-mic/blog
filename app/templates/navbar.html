@@ -8,12 +8,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="{{url_for('main.profile')}}">profile</a>
+                    <a class="nav-item nav-link" href="{{url_for('main.profile')}}">Profile</a>
                 </div>
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="{{ url_for('main.new_post') }}">New Post</a>
-                    <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                    <a class="nav-item nav-link" href="{{ url_for('main.new_post') }}">Create Post</a>
+                    <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Sign-out</a>
 
                     <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Login</a>
                     <a class="nav-item nav-link" href="{{ url_for('auth.sign_up') }}">Register</a>
