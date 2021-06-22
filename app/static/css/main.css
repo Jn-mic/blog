@@ -1,5 +1,5 @@
 body {
-    background: hsl(193, 86%, 95%);
+    background: rgb(231, 248, 253);
     color: #e7d8d8;
   }
   
@@ -43,7 +43,7 @@ body {
     color: #e4e2e2;
   }
   
-  a.article-title:hover {
+  a.woo:hover {
     color: #cae1f5;
     text-decoration: none;
   }
@@ -52,10 +52,10 @@ body {
     white-space: pre-line;
   }
   
-  .article-img {
-    height: 65px;
-    width: 65px;
-    margin-right: 16px;
+  .img {
+    height: 70px;
+    width: 70px;
+    margin-right: 15px;
   }
   
   .data {
@@ -64,8 +64,8 @@ body {
     border-bottom: 1px solid #e3e3e3
   }
   
-  .article-metadata a:hover {
-    color: #ebe4e4;
+  .jn a:hover {
+    color: #f8e5e5;
     text-decoration: none;
   }
   
@@ -88,9 +88,5 @@ body {
   
   .hr{
   font-size:20px;
-  }
-  
-  .commentcomment{
-  font-size:15px;
   }
   
