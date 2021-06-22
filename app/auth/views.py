@@ -19,7 +19,7 @@ def login():
             next_url = request.args.get('next')
             return redirect(next_url) if next_url else redirect(url_for('main.index'))
         else:
-            flash('Login Unsuccessful. Please check email and password', 'danger')
+            flash('Login was unsuccessful. Kindly check on the email and password', 'danger')
     return render_template('auth/login.html', title='Login', form=form)
 
 
@@ -43,3 +43,17 @@ def sign_up():
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
+
+# @auth.route('/register',methods = ["GET","POST"])
+# def register():
+#     form = RegisterForm()
+#     if form.validate_on_submit():
+#         user = User(email = form.email.data, username = form.username.data,password = form.password.data)
+#         db.session.add(user)
+#         db.session.commit()
+
+#         mail_message("Welcome to blog","email/welcome_user",user.email,user=user)
+
+#         return redirect(url_for('auth.login')) form = RegistrationForm()
+#         title = "New Account"
+#     return render_template('auth/register.html',registration_form = form)

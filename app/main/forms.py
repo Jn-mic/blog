@@ -8,7 +8,7 @@ from app.models import User
 
 
 class UpdateAccountForm(FlaskForm):
-    username = StringField('Username',validators=[DataRequired(), Length(min=3, max=25)])
+    username = StringField('Username',validators=[DataRequired(), Length(min=4, max=30)])
     email = StringField('Email',validators=[DataRequired(), Email()])
     picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
     submit = SubmitField('Update')
@@ -23,7 +23,7 @@ class UpdateAccountForm(FlaskForm):
         if email.data != current_user.email:
             user = User.query.filter_by(email=email.data).first()
             if user:
-                raise ValidationError('Account already taken.Kindly chose a new account.')
+                raise ValidationError('Account has already been taken.Kindly chose a new account.')
 
 class RequestResetForm(FlaskForm):
     email = StringField('Email',validators=[DataRequired(), Email()])
@@ -32,7 +32,7 @@ class RequestResetForm(FlaskForm):
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user is None:
-            raise ValidationError('No such account.Kindly register.')
+            raise ValidationError('Account does not exit,kindly register.')
 
 class ResetPasswordForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])

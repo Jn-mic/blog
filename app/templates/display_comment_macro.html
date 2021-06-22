@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% macro display_comments(comments) %}
-<div class="mt-5">
+<div class="mt-6">
     <h1 class="text-center">Comments</h1>
     {% for comment in comments %}
     <img class="rounded-circle article-img"src="{{ url_for('static', filename='profile_pic/' + comment.author.image_file) }}">
-    <a class="mr-2 hr" href="#">Comment by: {{ comment.author.username }}</a>
-    <p class="mt-10 mr-2 hr">Comment: {{comment.comment}}</p>
+    <a class="mr-2 hr" href="#">Comment Updated by: {{ comment.author.username }}</a>
+    <p class="mt-10 mr-2 hr">Comment:- {{comment.comment}}</p>
     {% endfor %}
 </div>
 {% endmacro %}

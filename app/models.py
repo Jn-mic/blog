@@ -82,6 +82,7 @@ class Comment(db.Model):
     def __repr__(self):
         return f'Comments: {self.comment}'
 
+
 class Clap(db.Model):
     __tablename__ = 'up_votes'
     id = db.Column(db.Integer, primary_key=True)

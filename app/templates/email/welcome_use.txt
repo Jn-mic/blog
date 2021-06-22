@@ -1,2 +1,2 @@
 Hello {{user.username}}
-Feel at home here at Blog.Thanks for signing up :)
+  Thank you for signing up for blog updates.
