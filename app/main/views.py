@@ -10,7 +10,7 @@ from app.models import Post, Clap, Comment
 from app.requests import getQuotes
 
 
-@main.route('/')
+@main.route('/home')
 # @main.route('/home')
 def index():
     quotes = getQuotes()

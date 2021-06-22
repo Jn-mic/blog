@@ -32,7 +32,7 @@ def sign_up():
         password = form.password.data
         user = User(username=username, email=email)
         user.set_password(password)
-        mail_message("Welcome to Blogx", "email/welcome_user", user.email, {"user":user})
+        mail_message("Welcome to Blog", "email/welcome_user", user.email, {"user":user})
         user.save()
         flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('auth.login'))
