@@ -56,3 +56,6 @@ After extracting the files,
 
 ## Collaborate
 To collaborate, reach me on:[jackotienokey@gmail.com]()
+
+## know bugs
+Getting Sendgrid Api registration did not work for storing email data and an attempt to revert to using my gmail account for submission has been a challenge.

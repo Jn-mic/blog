@@ -2,7 +2,7 @@
 {%from 'display_quote_macro.html' import display_quotes%}
 {% from 'display_post_macro.html' import display_posts%}
 {%block content%}
-    <h1>{{display_quotes(quotes)}}</h1>
+    <h2>{{display_quotes(quotes)}}</h2>
 {% for post in posts %}
 <article class="media content-section">
     <div class="media-body">

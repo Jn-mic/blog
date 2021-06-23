@@ -2,7 +2,8 @@ from flask_login import current_user
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, PasswordField, SubmitField, TextAreaField, SelectField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from wtforms import validators
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, Required
 
 from app.models import User
 
@@ -19,11 +20,7 @@ class UpdateAccountForm(FlaskForm):
             if user:
                 raise ValidationError('Username is already available. Find a new username.')
 
-    def validate_email(self, email):
-        if email.data != current_user.email:
-            user = User.query.filter_by(email=email.data).first()
-            if user:
-                raise ValidationError('Account has already been taken.Kindly chose a new account.')
+
 
 class RequestResetForm(FlaskForm):
     email = StringField('Email',validators=[DataRequired(), Email()])
@@ -41,6 +38,7 @@ class ResetPasswordForm(FlaskForm):
 
 class PostForm(FlaskForm):
     title = StringField('Title',validators=[DataRequired()])
+    subtitle = StringField('subtitle', validators=[DataRequired()])
     content = TextAreaField('Content', validators=[DataRequired()])
     submit = SubmitField('Post')
 
