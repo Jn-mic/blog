@@ -10,7 +10,7 @@ body {
 }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #eeecec;
+    color: #df5050;
   }
   
   .bg-steel {
@@ -39,7 +39,7 @@ body {
   }
   
   .av {
-    color: #e4e2e2;
+    color: #0f0202;
   }
   
   a.woo:hover {
