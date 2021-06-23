@@ -1,15 +1,16 @@
 body {
-    background: rgb(231, 248, 253);
-    color: #e7d8d8;
+    background: rgb(219, 221, 223);
+    color: #c20d0d;
     margin-top:17%;
   }
+  
   
   .navbar{
   background: #101213;
 }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #eeecec;
+    color: #df5050;
   }
   
   .bg-steel {
@@ -32,13 +33,13 @@ body {
     margin:5px;
     background: hsl(240, 1%, 21%);
     padding: 10px 20px;
-    border: 1px solid #0e0d0d;
+    border: 1px solid #0d0e0d;
     border-radius: 3px;
     padding-bottom: 20px;
   }
   
   .av {
-    color: #e4e2e2;
+    color: #0f0202;
   }
   
   a.woo:hover {
